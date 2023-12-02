@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { closeMenu, closeSmallMenu } from '../utils/appSlice';
+import { closeMenu } from '../utils/appSlice';
 import { useSearchParams } from 'react-router-dom';
 
 const WatchPage = () => {
@@ -9,7 +9,6 @@ const WatchPage = () => {
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(closeMenu());
-        dispatch(closeSmallMenu());
     },[])
   return (
     <div>

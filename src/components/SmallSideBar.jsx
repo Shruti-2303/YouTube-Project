@@ -1,18 +1,14 @@
-import React from "react";
-import { useSelector } from "react-redux";
-
+import SmallSideBarBtn from "./SmallSideBarBtn";
+import { smallSideBarData } from "../constants/helperData.jsx";
 const SmallSideBar = () => {
-  // const isSmallMenuOpen = useSelector(store=>store.app.isSmallMenuOpen);
-
-  // if(!isSmallMenuOpen) return null;
 
   return (
     <div>
       <ul>
-        <li>Home</li>
-        <li>Shorts</li>
-        <li>Subscriptions</li>
-        <li>You</li>
+        {smallSideBarData.map((data,index)=><li key={index}> 
+          <SmallSideBarBtn icon={data.icon} text={data.text} />
+        </li>)}
+
       </ul>
     </div>
   );

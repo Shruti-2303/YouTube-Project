@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SideBar from './SideBar'
-import MainContainer from './MainContainer'
-import Header from './Header'
-import SmallSideBar from './SmallSideBar'
-import { Outlet } from 'react-router-dom'
+import { Outlet,useLocation } from 'react-router-dom'
+
 
 const Body = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+  
+
+  useEffect(()=>{
+    console.log("My current path is ",currentPath); 
+  },[currentPath])
   return (
     <div className='flex'>       
         <SideBar/>
