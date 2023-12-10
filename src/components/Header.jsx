@@ -54,17 +54,22 @@ const Header = () => {
   };
 
   return (
-    <div className="grid grid-flow-col shadow-lg pb-2">
-      <div className="flex col-span-1">
-        <RxHamburgerMenu
-          className="w-6 h-6 text-[#030303] mt-4 ml-6 font-thin cursor-pointer"
+    <div className="grid grid-flow-col shadow-lg pb-2 px-8">
+      <div className="flex col-span-1 mt-2 items-center gap-x-6">
+      <div className='hover:bg-gray-200 rounded-full p-1'>
+      <RxHamburgerMenu
+          className="w-5 h-5 text-[#030303] font-thin cursor-pointer"
           onClick={handleToggleSidebar}
         />
-        <img
-          className="w-24 h-5 mt-5 ml-7 cursor-pointer"
-          src={YOUTUBE_LOGO}
-          alt="youtube_logo"
-        />
+      </div>
+        <div className='p-2'>
+          <img
+            className="w-24 h-5 cursor-pointer"
+            src={YOUTUBE_LOGO}
+            alt="youtube_logo"
+          />
+        </div>
+        
       </div>
       <div className="flex mt-2 col-span-10 relative ml-32 ">
         <input
@@ -95,10 +100,17 @@ const Header = () => {
           </div>
         )}
       </div>
-      <div className="flex mt-4 col-span-1 gap-x-8">
-        <BsCameraVideo className="w-6 h-6 cursor-pointer" />
-        <BsBell className="w-6 h-6 cursor-pointer" />
-        <FaCircleUser className="w-6 h-6 cursor-pointer" />
+      <div className="flex justify-between mt-2 col-span-1 gap-x-2">
+        <div className='hover:bg-gray-200 rounded-full p-2 cursor-pointer'>
+          <BsCameraVideo className="w-6 h-6" />
+        </div>
+        <div className='hover:bg-gray-200 rounded-full p-2 cursor-pointer'>
+          <BsBell className="w-6 h-6 cursor-pointer" />
+        </div>
+        <div className='hover:bg-gray-200 rounded-full p-2 cursor-pointer'>
+          <FaCircleUser className="w-6 h-6 cursor-pointer" />
+        </div>
+        
       </div>
     </div>
   );
