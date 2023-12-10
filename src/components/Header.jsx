@@ -61,7 +61,7 @@ const Header = () => {
           onClick={handleToggleSidebar}
         />
         <img
-          className="w-24 h-5 mt-5 ml-7"
+          className="w-24 h-5 mt-5 ml-7 cursor-pointer"
           src={YOUTUBE_LOGO}
           alt="youtube_logo"
         />
@@ -86,7 +86,7 @@ const Header = () => {
           <div className="absolute bg-white top-full left-0 w-[60%] mt-2 px-3 py-2 rounded-lg shadow-lg border border-gray-200">
             <ul>
               {suggestions.map((s) => (
-                <li key={s} className="flex items-center">
+                <li key={s} className="flex items-center cursor-pointer">
                   <IoSearchOutline className="mr-2" />
                   {s}
                 </li>
@@ -96,9 +96,9 @@ const Header = () => {
         )}
       </div>
       <div className="flex mt-4 col-span-1 gap-x-8">
-        <BsCameraVideo className="w-6 h-6" />
-        <BsBell className="w-6 h-6" />
-        <FaCircleUser className="w-6 h-6" />
+        <BsCameraVideo className="w-6 h-6 cursor-pointer" />
+        <BsBell className="w-6 h-6 cursor-pointer" />
+        <FaCircleUser className="w-6 h-6 cursor-pointer" />
       </div>
     </div>
   );

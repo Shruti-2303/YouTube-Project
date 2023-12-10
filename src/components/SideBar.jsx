@@ -7,7 +7,7 @@ const SideBar = () => {
 
   // if(!isMenuOpen) return <SmallSideBar/>;
   if(isMenuOpen) return (
-    <div className='shadow-xl p-6 min-w-[230px] h-screen z-10'>
+    <div className='shadow-xl p-6 min-w-[230px] h-screen z-10 cursor-pointer'>
       <ul>
         <li>Home</li>
         <li>Shorts</li>
