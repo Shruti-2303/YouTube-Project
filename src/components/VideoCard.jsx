@@ -4,7 +4,6 @@ import { Tooltip } from "antd";
 const VideoCard = ({ info }) => {
   const { snippet, statistics } = info;
   const { channelTitle, thumbnails, title } = snippet;
-  console.log("snippet", snippet);
 
   const formatViewCount = (viewCount) => {
     const numericViewCount = parseFloat(viewCount);
