@@ -1,85 +1,96 @@
-import React from "react";
 import { FaCircleUser } from "react-icons/fa6";
 
 const commentsData = [
   {
-    name: "Shruti Sharma",
-    text: "It was a wonderful video.",
+    name: "John Doe",
+    text: "Great content!",
     replies: [
       {
-        name: "Shruti Sharma",
-        text: "It was a wonderful video.",
-        replies: [],
+        name: "Alice Johnson",
+        text: "Absolutely loved it!",
+        replies: [
+          {
+            name: "Bob Smith",
+            text: "Fantastic video!",
+            replies: ["Yes, it's really well made."],
+          },
+        ],
       },
     ],
   },
   {
-    name: "Shruti Sharma",
-    text: "It was a wonderful video.",
+    name: "Emma Brown",
+    text: "Interesting topic!",
     replies: [
       {
-        name: "Shruti Sharma",
-        text: "It was a wonderful video.",
+        name: "David White",
+        text: "I learned a lot from this.",
         replies: [
           {
-            name: "Shruti Sharma",
-            text: "It was a wonderful video.",
-            replies: [],
+            name: "Sophie Clark",
+            text: "Thanks for sharing!",
+            replies: [
+              {
+                name: "Liam Anderson",
+                text: "I agree, very informative.",
+                replies: ["Definitely worth watching."],
+              },
+            ],
           },
         ],
       },
       {
-        name: "Shruti Sharma",
-        text: "It was a wonderful video.",
+        name: "Olivia Davis",
+        text: "Well explained!",
         replies: [
           {
-            name: "Shruti Sharma",
-            text: "It was a wonderful video.",
-            replies: [],
+            name: "Charlie Miller",
+            text: "Clear and concise.",
+            replies: ["Yes, the presenter did a great job."],
           },
         ],
-      },
-      {
-        name: "Shruti Sharma",
-        text: "It was a wonderful video.",
-        replies: [],
       },
     ],
   },
   {
-    name: "Shruti Sharma",
-    text: "It was a wonderful video.",
-    replies: "Yes indeed it is a very nice video",
+    name: "Grace Wilson",
+    text: "Nice work!",
+    replies: ["Yes, enjoyed every bit of it."],
   },
   {
-    name: "Shruti Sharma",
-    text: "It was a wonderful video.",
-    replies: "Yes indeed it is a very nice video",
+    name: "Daniel Harris",
+    text: "Awesome video!",
+    replies: ["Yes indeed, loved the content."],
   },
   {
-    name: "Shruti Sharma",
-    text: "It was a wonderful video.",
-    replies: "Yes indeed it is a very nice video",
+    name: "Eva Moore",
+    text: "Well done!",
+    replies: ["Great job on the production!"],
   },
   {
-    name: "Shruti Sharma",
-    text: "It was a wonderful video.",
-    replies: "Yes indeed it is a very nice video",
+    name: "Oscar Taylor",
+    text: "Superb!",
+    replies: ["Kudos to the team."],
   },
   {
-    name: "Shruti Sharma",
-    text: "It was a wonderful video.",
-    replies: "Yes indeed it is a very nice video",
+    name: "Mia Turner",
+    text: "Fantastic presentation!",
+    replies: ["I couldn't agree more."],
   },
   {
-    name: "Shruti Sharma",
-    text: "It was a wonderful video.",
-    replies: "Yes indeed it is a very nice video",
+    name: "Noah Walker",
+    text: "Thoroughly enjoyed it!",
+    replies: ["Yes, it was a delightful watch."],
   },
   {
-    name: "Shruti Sharma",
-    text: "It was a wonderful video.",
-    replies: "Yes indeed it is a very nice video",
+    name: "Ava Hill",
+    text: "Bravo!",
+    replies: ["Looking forward to more content like this."],
+  },
+  {
+    name: "Carter Brooks",
+    text: "Incredible content!",
+    replies: ["Absolutely, top-notch quality."],
   },
 ];
 
@@ -87,20 +98,36 @@ const Comment = ({ data }) => {
   const { name, text, replies } = data;
 
   return (
-    <div className="flex">
-      <FaCircleUser className="w-12 h-12" />
+    <div className="flex shadow-sm bg-gray-100 p-2 rounded-lg my-2 items-center text-sm">
+      <FaCircleUser className="w-8 h-8" />
       <div className="px-3">
-        <p className="font-bold">name</p>
-        <p>Comment</p>
+        <p className="font-bold">{name}</p>
+        <p>{text}</p>
       </div>
     </div>
   );
 };
+
+const CommentsList = ({ comments }) => {
+  return comments.map((comment, index) => {
+    return (
+      <div>
+        {comment.name && comment.text && <Comment key={index} data={comment} />}
+        {comment.replies && (
+          <div className="pl-5 border border-l-black">
+            <CommentsList comments={comment.replies} />
+          </div>
+        )}
+      </div>
+    );
+  });
+};
+
 const CommentsContainer = () => {
   return (
-    <div className="ml-5">
+    <div className="ml-5 w-[63%]">
       <div className="font-bold text-2xl">Comments:</div>
-      <Comment data={commentsData[0]} />
+      <CommentsList comments={commentsData} />
     </div>
   );
 };
