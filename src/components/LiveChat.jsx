@@ -24,8 +24,8 @@ const LiveChat = () => {
     return () => clearInterval(i);
   }, []);
   return (
-    <>
-      <div className="w-full text-sm p-2 border border-black bg-slate-50 rounded-lg overflow-y-scroll flex flex-col-reverse">
+    <div className="h-[30%]">
+      <div className="w-full h-[95%] text-sm p-2 border border-black bg-slate-50 rounded-lg overflow-y-scroll flex flex-col-reverse">
         {chatMessages.map((c, index) => (
           <ChatMessage key={index} name={c.name} message={c.message} />
         ))}
@@ -54,7 +54,7 @@ const LiveChat = () => {
         />
         <button className="w-[15%] text-gray rounded px-1 py-1 text-sm bg-green-300 border border-green-800">Send</button>
       </form>
-    </>
+    </div>
   );
 };
 

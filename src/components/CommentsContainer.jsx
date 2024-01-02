@@ -125,7 +125,7 @@ const CommentsList = ({ comments }) => {
 
 const CommentsContainer = () => {
   return (
-    <div className="w-[65%] p-8">
+    <div className="w-full py-8">
       <div className="font-bold text-2xl">Comments:</div>
       <CommentsList comments={commentsData} />
     </div>

@@ -73,8 +73,8 @@ const WatchPage = () => {
     <div className="w-full">
       <Header />
       <div className="flex flex-col mx-auto">
-        <div className="grid grid-cols-3 gap-10 px-8 pt-8 pb-4">
-          <div className="col-span-2">
+        <div className="grid grid-cols-3 gap-10 px-8 pt-8 pb-4 h-[60vh]">
+          <div className="col-span-2 ">
             <iframe
               // width="720"
               // height="405"
@@ -83,15 +83,26 @@ const WatchPage = () => {
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
-              className="rounded-xl w-full h-full"
+              className="rounded-xl w-full h-[30%]"
             ></iframe>
-          </div>
+              <div className="flex flex-col gap-2 w-[100%] mt-6">
+                <div className="text-xl font-bold">{videoSnippet && videoSnippet.title}</div>
+                  <div className="flex gap-2 ">
+                    <img className="rounded-full h-10" src={channelSnippet && channelSnippet.thumbnails.default.url} alt="channelLogo" />
+                    <div className="flex flex-col">
+                      <span className="text-sm font-semibold">{channelSnippet && channelSnippet.title}</span>
+                      <span className="text-xs">{channelStats && formatCount(channelStats.subscriberCount)} Subscribers</span>
+                    </div>
+                  </div>
+                </div>
+                <CommentsContainer />
+            </div>
           <div className="col-span-1">
             <LiveChat />
           </div>
         </div>
 
-        <div className="px-8 flex flex-col gap-2">
+        {/* <div className="px-8 flex flex-col gap-2 w-[100%]">
           <div className="text-xl font-bold">{videoSnippet && videoSnippet.title}</div>
           <div className="flex gap-2 ">
             <img className="rounded-full h-10" src={channelSnippet && channelSnippet.thumbnails.default.url} alt="channelLogo" />
@@ -100,10 +111,10 @@ const WatchPage = () => {
               <span className="text-xs">{channelStats && formatCount(channelStats.subscriberCount)} Subscribers</span>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div>
-          <CommentsContainer />
+          {/* <CommentsContainer /> */}
         </div>
       </div>
     </div>
