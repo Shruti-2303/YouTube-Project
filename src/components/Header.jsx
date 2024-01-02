@@ -10,15 +10,18 @@ import { toggleMenu } from '../utils/appSlice';
 import { YOUTUBE_LOGO } from '../constants/imageConstants';
 import { YOUTUBE_SEARCH_API } from '../constants/generalConstants';
 import { cacheResults } from '../utils/searchSlice';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
+  const dispatch = useDispatch();
+
+  const searchCache = useSelector((store)=>store.search);
+
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  const searchCache = useSelector((store)=>store.search);
 
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -63,11 +66,13 @@ const Header = () => {
         />
       </div>
         <div className='p-2'>
-          <img
-            className="w-24 h-5 cursor-pointer"
-            src={YOUTUBE_LOGO}
-            alt="youtube_logo"
-          />
+          <Link to="/">
+            <img
+                className="w-24 h-5 cursor-pointer"
+                src={YOUTUBE_LOGO}
+                alt="youtube_logo"
+              />
+          </Link>
         </div>
         
       </div>
